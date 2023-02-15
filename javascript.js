@@ -1,3 +1,10 @@
+    
+
+function playRound() {
+
+const gameArray = [];
+
+for (let i = 0; i<5; i++) {
 const rock = 'rock';
 const paper = 'paper';
 const scissors = 'scissors';
@@ -7,52 +14,85 @@ const scissors = 'scissors';
 const playerPrompt = prompt("Choose your weapon! Will it be rock, paper or scissors?");
 
 function getPlayerSelection(){
-if (playerPrompt.toLowerCase(`${playerPrompt}`) == "rock") {return(rock)}
-else if (playerPrompt.toLowerCase(`${playerPrompt}`) == "paper") {return(paper)}
-else if (playerPrompt.toLowerCase(`${playerPrompt}`) == "scissors") {return(scissors)}
-else {alert("Invalid selection.")}
+if (playerPrompt.toLowerCase() == "rock") {return(rock)}
+else if (playerPrompt.toLowerCase() == "paper") {return(paper)}
+else if (playerPrompt.toLowerCase() == "scissors") {return(scissors)}
+else {alert("Invalid selection.")};
 };
 
 const playerSelection = getPlayerSelection();
-console.log("The user has selected " + playerSelection);
 
 // Computer selection options
+
 const x = Math.random();
 
-function getComputerChoice(x) {
-    if (x < 0.33) {return(rock)}
-    else if (x < 0.66) {return(paper)}
+function getComputerSelection() {
+    if (x < (1/3)) {return(rock)}
+    else if (x < (2/3)) {return(paper)}
     else {return(scissors)};
 };
 
-const computerSelection = getComputerChoice(x);
+const computerSelection = getComputerSelection();
 
 alert("The computer has selected " + computerSelection);
-console.log("The computer has selected " + computerSelection);
 
 // Comparing the results 
 
-function finalResult(){
-if (playerSelection == rock && computerSelection == scissors ||
-    playerSelection == paper && computerSelection == rock ||
-    playerSelection == scissors && computerSelection == paper) {
-        return("win")
-    } else if (playerSelection == scissors && computerSelection == rock ||
-        playerSelection == rock && computerSelection == paper ||
-        playerSelection == paper && computerSelection == scissors) {
-            return("lose")
-        } else {
-            return("tie")
-        };
-    };
+const win = 1;
+const lose = -1;
+const tie = 0;
+
+function finalResult() {
+    if (playerSelection === computerSelection) 
+        {return(tie)} 
+    else if (playerSelection == scissors && computerSelection == rock ||
+            playerSelection == rock && computerSelection == paper ||
+            playerSelection == paper && computerSelection == scissors) 
+            {return(lose)} 
+    else {return(win)}
+};
+
+const gameScore = finalResult();
+
+console.log(gameScore);
+gameArray.push(gameScore);
+}
+
+console.log(gameArray);
+
+let sum = 0;
+
+function game(){ 
+    for (let i = 0; i<gameArray.length; i++) {
+    sum += gameArray[i];
+}
+return(sum);
+};
+
+console.log(game());
+
+const declareVictor = game();
+
+if (declareVictor == 0) {alert("It's a tie!")}
+else if (declareVictor <= -1) {alert("You lose :(")}
+else {alert("Congratulations, you win! :)")}
+
+}
+
+console.log(playRound());
+
+
+
+
+
+/*
 
 // Declaring the winner
 
-if (finalResult() == "win" ) {alert("You win, " + playerSelection + " beats " + computerSelection + "!")}
-else if (finalResult() == "lose") {alert("You lose, " + computerSelection + " beats " + playerSelection + "!")}
+if (finalResult() == win) {alert("You win, " + playerSelection + " beats " + computerSelection + "!")}
+else if (finalResult() == lose) {alert("You lose, " + computerSelection + " beats " + playerSelection + "!")}
 else {alert("It's a tie!")};
 
-console.log(finalResult());
+return(finalResult());
 
-
-
+*/
