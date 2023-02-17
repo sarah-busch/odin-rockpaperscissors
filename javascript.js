@@ -2,7 +2,11 @@
 
 function playRound() {
 
+alert("Welcome to rock paper scissors! You'll play 5 rounds against the computer, with the winner being declared at the end. Ready?")
+
 const gameArray = [];
+
+// Loop through 5 rounds
 
 for (let i = 0; i<5; i++) {
 const rock = 'rock';
@@ -36,11 +40,11 @@ const computerSelection = getComputerSelection();
 
 alert("The computer has selected " + computerSelection);
 
-// Comparing the results 
+// Comparing the round results 
 
-const win = 1;
-const lose = -1;
-const tie = 0;
+const win = 'win';
+const lose = 'lose';
+const tie = 'tie';
 
 function finalResult() {
     if (playerSelection === computerSelection) 
@@ -54,45 +58,35 @@ function finalResult() {
 
 const gameScore = finalResult();
 
+if (gameScore == win) {alert("You win this round, " + playerSelection + " beats " + computerSelection + ".")}
+else if (gameScore == lose) {alert("You lose this round, " + computerSelection + " beats " + playerSelection + ".")}
+else {alert("It's a tie!")};
+
 console.log(gameScore);
 gameArray.push(gameScore);
 }
 
+// End of loop & summarize results of game
+
 console.log(gameArray);
 
-let sum = 0;
-
-function game(){ 
-    for (let i = 0; i<gameArray.length; i++) {
-    sum += gameArray[i];
-}
-return(sum);
+function getOccurrence(gameArray, value) {
+    let count = 0;
+    gameArray.forEach(x => x === value && count++);
+    return count;
 };
 
-console.log(game());
+console.log(getOccurrence(gameArray, 'win'));
+console.log(getOccurrence(gameArray, 'lose'));
 
-const declareVictor = game();
+let playerVictories = getOccurrence(gameArray, 'win');
+let computerVictories = getOccurrence(gameArray, 'lose');
 
-if (declareVictor == 0) {alert("It's a tie!")}
-else if (declareVictor <= -1) {alert("You lose :(")}
-else {alert("Congratulations, you win! :)")}
+alert("Time for the final score! You won " + playerVictories + " of 5 rounds. The computer won " + computerVictories + " of 5 rounds.");
 
+if (playerVictories > computerVictories) {alert("Congratulations, you win!")} 
+else if (playerVictories < computerVictories) {alert("So sorry, you lose. Better luck next time!")}
+else (alert("It's a tie!"));
 }
 
 console.log(playRound());
-
-
-
-
-
-/*
-
-// Declaring the winner
-
-if (finalResult() == win) {alert("You win, " + playerSelection + " beats " + computerSelection + "!")}
-else if (finalResult() == lose) {alert("You lose, " + computerSelection + " beats " + playerSelection + "!")}
-else {alert("It's a tie!")};
-
-return(finalResult());
-
-*/
