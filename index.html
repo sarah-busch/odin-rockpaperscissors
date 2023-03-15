@@ -3,14 +3,32 @@
     <head>
         <meta charset="utf-8">
         <title>Rock, Paper, Scissors</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h2 class="header">Man Versus Machine in...</h2>
-        <h3 class="header">Rock Paper Scissors</h3>
-        <div id="container">Choose your weapon</div>
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+        <div class="typing">
+            <h1 id="intro">MAN VERSUS MACHINE IN...</h1>
+        </div>
+        <h2 id="game">Rock Paper Scissors</h2>
+        <div id="playerSelect">Choose your weapon:</div>
+        <div class="playerContainer">
+            <button id="rock"><img src="./images/rock.png" class="image"></button>
+            <button id="paper"><img src="./images/paper.png" class="image"></button>
+            <button id="scissors"><img src="./images/scissors.png" class="image"></button>
+        </div>
+        <h3 id ="outcome">Round Outcome</h3>
+        <div class = "summaryBox">
+            <div class="compSection">
+                <div id="compDisplay">Computer Selection</div>
+                <div id="compImage"></div>
+            </div>
+            <div>
+                <div id="displayOutcome">AWAITING RESULTS...</div>
+                <div id="tallyResults">Scores</div>
+                <div id="playerScore">Player: 0</div>
+                <div id="compScore">Computer: 0</div>
+            </div>
+        </div>
         <script src="javascript.js"></script>
     </body>
 </html>
