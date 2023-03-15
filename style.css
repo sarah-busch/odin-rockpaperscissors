@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #10100e;
+    color: #4ff8a4;
+    text-shadow: 0 0 5px #1c905b;
+    font-family: monospace;
+    text-align: center;
+}
+
+.typing h1 {
+    overflow: hidden; 
+    border-right: .4em solid #4ff8a4; 
+    white-space: nowrap;
+    margin: 0 auto; 
+    letter-spacing: .3em; 
+    animation: 
+      typing 3.5s steps(30, end),
+      blink-caret .5s step-end infinite;
+  }
+
+  /* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #4ff8a4; }
+  }
+
+#intro {
+    font-size: 42px;
+}
+
+#game, #playerSelect {
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.image {
+    height: 125px;
+    width: auto;
+}
+
+#compImage {
+    display: flex;
+    justify-content: center;
+}
+
+.playerContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 80px;
+}
+
+button {
+    background-color: #10100e;
+    border-style: dashed;
+    border-width: medium;
+    border-color: #4ff8a4;
+    padding: 15px;
+}
+
+#outcome {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.summaryBox {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    gap: 300px;
+    border-style: dashed;
+    border-width: medium;
+    margin: 10px;
+    padding: 15px;
+}
+
+#tallyResults {
+    font-size: 25px;
+}
+
+#compDisplay, #displayOutcome {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+#displayOutcome {
+    animation: blink .6s linear infinite alternate;
+}
+
+@keyframes blink {
+    0% {opacity: 1;}
+    40% {opacity: 1;}
+    60% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+#compScore, #playerScore {
+    font-size: 20px;
+}
