@@ -9,6 +9,7 @@ body {
 }
 
 .typing h1 {
+    display: inline-block;
     overflow: hidden; 
     border-right: .4em solid #4ff8a4; 
     white-space: nowrap;
@@ -35,7 +36,7 @@ body {
     font-size: 42px;
 }
 
-#game, #playerSelect {
+#game {
     font-size: 35px;
     margin-bottom: 30px;
 }
@@ -48,6 +49,7 @@ body {
 #compImage {
     display: flex;
     justify-content: center;
+    height: 100px;
 }
 
 .playerContainer {
@@ -60,7 +62,7 @@ body {
 
 button {
     background-color: #10100e;
-    border-style: dashed;
+    border-style: outset;
     border-width: medium;
     border-color: #4ff8a4;
     padding: 15px;
@@ -71,24 +73,28 @@ button {
     margin-bottom: 20px;
 }
 
-.summaryBox {
+#summaryBox {
     display: flex;
     justify-content: center;
     text-align: left;
     gap: 300px;
     border-style: dashed;
     border-width: medium;
-    margin: 10px;
+    margin: 10px 80px;
     padding: 15px;
 }
 
-#tallyResults {
+#tallyResults, #compScore, #playerScore {
     font-size: 25px;
 }
 
 #compDisplay, #displayOutcome {
     font-size: 25px;
     margin-bottom: 8px;
+}
+
+#displayOutcome {
+    width: 300px;
 }
 
 #displayOutcome {
@@ -100,8 +106,4 @@ button {
     40% {opacity: 1;}
     60% {opacity: 0;}
     100% {opacity: 0;}
-}
-
-#compScore, #playerScore {
-    font-size: 20px;
 }
