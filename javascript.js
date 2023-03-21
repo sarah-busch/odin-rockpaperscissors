@@ -9,7 +9,7 @@ const compContainer = document.getElementById("compScore");
 const displayOutcome = document.getElementById("displayOutcome")
 const body = document.querySelector('body');
 const compImage = document.getElementById('compImage');
-
+const summaryBox = document.getElementById('summaryBox');
 
 function playRound() {
     const rock = "rock";
@@ -87,17 +87,33 @@ function playRound() {
     playerContainer.textContent = "Player: " + playerSum;
     compContainer.textContent = "Computer: " + compSum;
 
+    function reload() {
+        location.reload();
+    }
+
+    function createButton() {
+        const createButton = document.createElement('button');
+        createButton.innerText = "Click here to play again";
+        createButton.style.fontFamily = "monospace";
+        createButton.style.color = "#4ff8a4";
+        createButton.style.textShadow = "0 0 5px #1c905b";
+        createButton.style.fontSize = "20px";
+        createButton.style.marginTop = "40px";
+        createButton.style.marginLeft = "400px";
+        createButton.style.marginRight = "400px";
+        createButton.addEventListener('click', reload);
+        body.appendChild(createButton);
+    }
+
     if (playerArray.length == 5) {
-        body.textContent = "CONGRATULATIONS YOU WIN";
-        body.style.color = "#4ff8a4";
-        body.style.textAlign = "center";
+        summaryBox.textContent = "CONGRATULATIONS, YOU WIN!";
         body.style.fontSize = "50px";
+        createButton();
         }
         else if (compArray.length == 5) {
-        body.textContent= "COMPUTER WINS";
-        body.style.color = "#4ff8a4";
-        body.style.textAlign = "center";
+        summaryBox.textContent= "COMPUTER WINS";
         body.style.fontSize = "50px";
+        createButton();
         } 
         else {console.log("continue")};
 }
@@ -105,3 +121,4 @@ function playRound() {
 rock.addEventListener('click', playRound);
 paper.addEventListener('click', playRound);
 scissors.addEventListener('click', playRound);
+
